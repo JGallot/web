@@ -64,7 +64,7 @@ class Gestion {
      * @param array $post
      * @return array $data
      */
-    protected function FormData2Array(array $post)
+    public function FormData2Array(array $post)
     {
         $config = new \App\Libraries\Configuration(\includes\SQL::singleton());
 
@@ -1057,5 +1057,4 @@ class Gestion {
     {
         return \App\ProtoControllers\Utilisateur::isRH($_SESSION['userlogin']);
     }
-
 }
