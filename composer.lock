@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "77f8958fa296195756eabfb5bda429f8",
+    "content-hash": "a3530145964f528ce738266c515095a1",
     "packages": [
         {
             "name": "adldap2/adldap2",
@@ -660,16 +660,16 @@
         },
         {
             "name": "libertempo/api",
-            "version": "v1.6.2",
+            "version": "v1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/libertempo/api.git",
-                "reference": "f2fefee849efd2a268fb6297354b4a764d4a1565"
+                "reference": "495bee70b616777499afcc0704e9bec816a30170"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/libertempo/api/zipball/f2fefee849efd2a268fb6297354b4a764d4a1565",
-                "reference": "f2fefee849efd2a268fb6297354b4a764d4a1565",
+                "url": "https://api.github.com/repos/libertempo/api/zipball/495bee70b616777499afcc0704e9bec816a30170",
+                "reference": "495bee70b616777499afcc0704e9bec816a30170",
                 "shasum": ""
             },
             "require": {
@@ -683,7 +683,7 @@
             "require-dev": {
                 "atoum/atoum": "3.3.0",
                 "codacy/coverage": "1.4.2",
-                "codeception/codeception": "2.5",
+                "codeception/codeception": "2.5.1",
                 "herloct/codeception-slim-module": "1.1"
             },
             "type": "library",
@@ -708,7 +708,7 @@
                     "role": "Developer"
                 }
             ],
-            "time": "2018-12-17T21:12:30+00:00"
+            "time": "2019-01-02T22:09:09+00:00"
         },
         {
             "name": "monolog/monolog",
