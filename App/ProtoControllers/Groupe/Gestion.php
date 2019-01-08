@@ -93,7 +93,7 @@ class Gestion {
             }
         }
 
-        if ($config->isDoubleValidationActive() && $post['new_group_double_valid'] == 'Y') {
+        if ($config->isDoubleValidationActive() && 'Y' === $post['new_group_double_valid']) {
             $data['isDoubleValidation'] = 'Y';
 
             if (!empty($post['checkbox_group_grand_resps'])) {
@@ -127,7 +127,7 @@ class Gestion {
             $updateResponsables = $this->updateResponsableGroupe($data['id'], $data['responsables']);
             $updategrandResponsables = $this->updateGrandResponsableGroupe($data['id'], $data['grandResponsables']);
 
-            $rollback = !($updateEmployes && $updateEmployes && $updateEmployes);
+            $rollback = !($updateEmployes && $updateResponsables && $updategrandResponsables);
         } else {
             $rollback = true;
         }
@@ -346,7 +346,7 @@ class Gestion {
                         "' . \includes\SQL::quote($libelle) . '",
                         "' . \includes\SQL::quote($isDoubleValidation) . '");';
 
-        $query = $sql->query($req);
+        $sql->query($req);
 
         return $sql->insert_id;
     }
@@ -455,7 +455,7 @@ class Gestion {
             'doubleValidation' => '',
             'comment' => ''
         ];
-        $data = NULL;
+        $data = null;
 
         $errorsLst = [];
         if (!empty($_POST)) {
@@ -518,8 +518,8 @@ class Gestion {
         $childTable .= '<td><input class="form-control" type="text" name="new_group_name" size="30" maxlength="50" value="' . $infosGroupe['nom'] . '" required></td>';
         $childTable .= '<td><input class="form-control" type="text" name="new_group_libelle" size="50" maxlength="250" value="' . $infosGroupe['comment'] . '"></td>';
         if ($config->isDoubleValidationActive()) {
-            $selectN = $infosGroupe['doubleValidation'] == 'N' ? 'selected="selected"' : '';
-            $selectY = $infosGroupe['doubleValidation'] == 'Y' ? 'selected="selected"' : '';
+            $selectN = $infosGroupe['doubleValidation'] === 'N' ? 'selected="selected"' : '';
+            $selectY = $infosGroupe['doubleValidation'] === 'Y' ? 'selected="selected"' : '';
             $childTable .= '<td><select class="form-control" name="new_group_double_valid" id="' . $selectId . '" onchange="showDivGroupeGrandResp(\'' . $selectId . '\',\'' . $DivGrandRespId . '\');"><option value="N" ' . $selectN . '>N</option><option value="Y" ' . $selectY . '>Y</option></select></td>';
         }
         $childTable .= '</tr></tbody>';
@@ -568,7 +568,7 @@ class Gestion {
      * @param int $id
      * @return string
      */
-    protected function getFormChoixEmploye($idGroupe, $data = NULL)
+    protected function getFormChoixEmploye($idGroupe, $data = null)
     {
         $table = new \App\Libraries\Structure\Table();
         $table->addClasses([
@@ -680,7 +680,7 @@ class Gestion {
      * @param int $idGroupe
      * @return string
      */
-    protected function getFormChoixGrandResponsable($idGroupe,$selectId, $data)
+    protected function getFormChoixGrandResponsable($idGroupe, $selectId, $data)
     {
         $table = new \App\Libraries\Structure\Table();
         $table->addClasses([
@@ -900,7 +900,7 @@ class Gestion {
             $return = false;
         }
 
-        if ('Y' == $data['isDoubleValidation']) {
+        if ('Y' === $data['isDoubleValidation']) {
             if ($this->isGrandResponsableEtAutre($data['employes'], $data['responsables'], $data['grandResponsables'])) {
                 $errors[] = _('Le grand responsable ne peut pas etre membre ou responsable du groupe');
                 $return = false;
