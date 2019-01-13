@@ -9,4 +9,3 @@ if (0 >= $id) {
 }
 
 $gestionGroupes = new \App\ProtoControllers\Groupe\Gestion();
-echo $gestionGroupes->getForm($id);
