@@ -134,7 +134,7 @@ const instance = axios.create({
   timeout: 1500
 });
 
-var vm = new Vue({
+var optionsVue = {
     el: '#inner-content',
     data: {
         employes : {},
@@ -304,6 +304,6 @@ var vm = new Vue({
             responsables[i].dispatchEvent(event);
         }
     }
-});
+};
 </script>
 <?php
